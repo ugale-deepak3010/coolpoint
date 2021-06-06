@@ -1,0 +1,47 @@
+										
+										$sqlCartGet="SELECT user_email,user_cart from product_detail where user_email='$user'";
+
+										$sqlCartDisp=
+
+ 
+										//$result=$conn->query($sql);
+										if($res=mysqli_query($conn,$sqlCartDisp))
+										{
+											if(mysqli_num_rows($res)>0)
+											{
+												while($row=mysqli_fetch_array($res))
+												{
+													echo $product_name=$row['product_name'];
+													$product_img=$row['product_img'];
+													$product_price=$row['product_price'];
+													$product_desc=$row['product_desc'];
+													$product_id=$row['product_id'];
+
+
+
+													echo "<!-- selected product-->
+						      <tr class='text-center'>
+						        <td class='product-remove'><a href='#'><span class='ion-ios-close'></span></a></td>
+						        
+						        <td class='image-prod'><div class='img' style='background-image:url($product_img);'></div></td>
+						        
+						        <td class='product-name'>
+						        	<h3>$product_name</h3>
+						        	<p>$product_desc</p>
+						        </td>
+						        
+						        <td class='price'>$product_price</td>
+						        
+						        <td class='quantity'>
+						        	<div class='input-group mb-3'>
+					             	<input type='text' name='quantity' class='quantity form-control input-number' value='1' min='1' max='100'>
+					          	</div>
+					          </td>
+						        
+						        <td class='total'>RS</td>
+						      </tr>
+						      <!-- selected product end-->";
+								
+												}
+											}else{echo "No record found";}
+										}else{echo "sqllllllll problem";}
